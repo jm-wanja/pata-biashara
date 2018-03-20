@@ -27,7 +27,18 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'ChromeBusinessListHeadless'],
+    customLaunchers: {
+      ChromeBusinessListHeadless: {
+        base: 'ChromeHeadless',
+        flags: [
+        '--no-sandbox',
+        '--headless',
+        '--disable-gpu',
+        '--remote-debugging-port=9222',
+        ]
+      },
+    },
     singleRun: false
   });
 };
